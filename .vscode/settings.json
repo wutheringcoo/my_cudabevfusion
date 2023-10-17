@@ -1,0 +1,8 @@
+{
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.python",
+        "editor.formatOnSave": true
+    },
+    "python.formatting.provider": "black"
+}
+//https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter

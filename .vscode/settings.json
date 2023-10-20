@@ -3,7 +3,7 @@
         "editor.defaultFormatter": "ms-python.python",
         "editor.formatOnSave": true
     },
-    "python.formatting.provider": "none",
+    "python.formatting.provider": "black",
     "files.associations": {
         "cctype": "cpp",
         "clocale": "cpp",
@@ -60,6 +60,8 @@
         "thread": "cpp",
         "cinttypes": "cpp",
         "typeinfo": "cpp"
-    }
+    },
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.typeCheckingMode": "basic"
 }
 //https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter

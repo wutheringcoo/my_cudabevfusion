@@ -63,12 +63,14 @@ print(img1)
 
 img_slow = nn_interpolate_slow(image1, 3 / 4)
 print(img_slow)
+# output with round
 # [[ 20  50 160]
 #  [110 140 244]
 #  [  1   2   4]]
 
 img_fast = nn_interpolate(image1)
 print(img_fast)
+# output with round
 # [[ 20  50 160]
 #  [110 140 244]
 #  [  1   2   4]]

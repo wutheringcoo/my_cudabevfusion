@@ -20,12 +20,12 @@ struct NormParams {
 };
 
 struct ResizeParams {
-    int src_image_width;
-    int src_image_height;
-    int num_cameras;
-    int dst_image_width;
-    int dst_image_height;
-    float resize_ratio;
+    const int src_image_width;
+    const int src_image_height;
+    const int num_cameras;
+    const int dst_image_width;
+    const int dst_image_height;
+    const float resize_scale;
     InterpolType interpolation;
 };
 }  // namespace camera

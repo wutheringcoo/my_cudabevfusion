@@ -2,9 +2,13 @@
 
 namespace bevfusion {
 namespace camera {
-class BevCamsParams {
+class BevFusionParams {
 public:
-    BevCamsParams(const NormParams normparams) {}
-}
+    BevFusionParams(const NormParams normparams);
+    bool IsParamsValid() const;
+
+public:
+    const NormParams normparams;
+};
 }  // namespace camera
 }  // namespace bevfusion

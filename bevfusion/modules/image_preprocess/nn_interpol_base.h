@@ -15,6 +15,7 @@ private:
     const int src_h_;
     const int dst_w_;
     const int dst_h_;
+    const int dst_c_;
 
     /// @brief  Dst image width / Src image width.
     const float xscale_ = 1.0f;

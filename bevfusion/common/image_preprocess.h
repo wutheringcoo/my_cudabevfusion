@@ -25,6 +25,7 @@ struct ResizeParams {
     const int num_cameras;
     const int dst_image_width;
     const int dst_image_height;
+    const int dst_image_channel;
     const float resize_scale;
     InterpolType interpolation;
 };

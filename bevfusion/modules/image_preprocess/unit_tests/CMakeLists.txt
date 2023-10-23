@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 2.8.12)
+project(image_preprocess_ut)
+
+add_executable(nn_interpol_base_test nn_interpol_base_test.cpp)
+target_link_libraries(nn_interpol_base_test image_preprocess_ut)
+add_test(NAME NN_INTERPOL_BASE_TEST COMMAND nn_interpol_base_test)

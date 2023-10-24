@@ -12,6 +12,6 @@ option(BUILD_TEST "Whether or not to build the tests" ON)
 if (${BUILD_TEST})
     message(STATUS "Building tests")
     enable_testing()  # Enable testing only works in root scope
-    add_subdirectory(bevfusion/modules/image_preprocess/unit_tests  output)
+    add_subdirectory(bevfusion/modules/image_preprocess/unit_tests  )
     # add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/bevfusion/modules/image_preprocess/unit_tests output)
 endif ()

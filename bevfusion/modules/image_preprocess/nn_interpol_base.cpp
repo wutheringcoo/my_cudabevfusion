@@ -30,7 +30,7 @@ unsigned char* NearestNeighborInterpol::forward(const unsigned char* src_img, un
             }
         }
     }
-
+}
 }  // namespace camera
 }  // namespace bevfusion
 

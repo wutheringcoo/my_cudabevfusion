@@ -8,6 +8,8 @@ set(CMAKE_CXX_FLAGS_DEBUG   "-std=c++14 -O0 -g -DENABLE_TEXT_BACKEND_STB")
 
 # set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/build)
 
+add_subdirectory(third_party/googletest)
+
 option(BUILD_TEST "Whether or not to build the tests" ON)
 if (${BUILD_TEST})
     message(STATUS "Building tests")

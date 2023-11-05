@@ -1,4 +1,8 @@
-#include "bevfusion/common/image_preprocess.h"
+#ifndef BEVFUSION_COMMON_BEVFUSION_PARAMS_H
+#define BEVFUSION_COMMON_BEVFUSION_PARAMS_H
+
+// #include "bevfusion/common/image_preprocess.h"
+#include "image_preprocess.h"
 
 namespace bevfusion {
 namespace camera {
@@ -12,3 +16,5 @@ public:
 };
 }  // namespace camera
 }  // namespace bevfusion
+
+#endif  // BEVFUSION_COMMON_BEVFUSION_PARAMS_H

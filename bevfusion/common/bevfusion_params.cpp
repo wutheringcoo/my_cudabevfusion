@@ -1,4 +1,5 @@
-#include "bevfusion/common/bevfusion_params.h"
+// #include "bevfusion/common/bevfusion_params.h"
+#include "bevfusion_params.h"
 #include <stdio.h>
 namespace bevfusion {
 namespace camera {

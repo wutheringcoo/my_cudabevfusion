@@ -1,3 +1,6 @@
+#ifndef BEVFUSION_MODULES_IMAGE_PREPROCESS_NN_INTERPOL_BASE_H
+#define BEVFUSION_MODULES_IMAGE_PREPROCESS_NN_INTERPOL_BASE_H
+
 #include "bevfusion/common/bevfusion_params.h"
 // #include "bevfusion/common/image_preprocess.h"
 
@@ -28,3 +31,5 @@ private:
 
 }  // namespace camera
 }  // namespace bevfusion
+
+#endif  // BEVFUSION_MODULES_IMAGE_PREPROCESS_NN_INTERPOL_BASE_H

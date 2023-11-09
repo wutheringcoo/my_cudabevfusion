@@ -8,6 +8,7 @@ pip install opencv-contrib-python -i https://pypi.tuna.tsinghua.edu.cn/simple
 2) if occures warning: 
 vscode ctrl+shift+p setting: convert indentation to spaces
 3) 使用std::int32_t可以提高代码的可移植性，并确保整数类型在不同的平台上具有相同的大小。这在处理需要精确控制整数范围和大小的情况下特别有用。
+4) 使用cmake 编译构建，cpp 引入头文件的处理方法是使用相对引用的方法。
 
 ### Make 
 1) cd build

@@ -1,8 +1,7 @@
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY bin) # define relative dir build if cmake.. and make here
-cmake_minimum_required(VERSION 2.8.12)
+cmake_minimum_required(VERSION 3.10.0)
 
 project(image_preprocess_ut) # Built target name called image_preprocess_ut
-
 
 enable_testing()
 add_executable(nn_interpol_base_test_exec.out nn_interpol_base_test.cpp)

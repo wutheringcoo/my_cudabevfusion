@@ -7,7 +7,10 @@ set(CMAKE_CXX_FLAGS_RELEASE "-std=c++14 -Wextra -Wall -Wno-missing-field-initial
 set(CMAKE_CXX_FLAGS_DEBUG   "-std=c++14 -O0 -g -DENABLE_TEXT_BACKEND_STB")
 
 # 1) 编译common目录下的静态库
-include_directories(bevfusion/common)
+include_directories(
+    bevfusion/common
+    bevfusion/modules/image_preprocess
+    )
 add_library(bevfusion_params bevfusion/common/bevfusion_params.cpp)
 
 add_subdirectory(third_party/googletest)

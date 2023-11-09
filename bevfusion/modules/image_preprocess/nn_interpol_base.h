@@ -1,8 +1,9 @@
 #ifndef BEVFUSION_MODULES_IMAGE_PREPROCESS_NN_INTERPOL_BASE_H
 #define BEVFUSION_MODULES_IMAGE_PREPROCESS_NN_INTERPOL_BASE_H
 
-#include "bevfusion/common/bevfusion_params.h"
-// #include "bevfusion/common/image_preprocess.h"
+#include "../common/bevfusion_params.h"
+// #include <bevfusion_params.h> 这种方式也可以
+// #include "bevfusion/common/image_preprocess.h" 这种会报错
 
 namespace bevfusion {
 namespace camera {

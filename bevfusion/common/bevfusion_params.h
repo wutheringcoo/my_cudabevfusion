@@ -8,11 +8,11 @@ namespace bevfusion {
 namespace camera {
 class BevFusionParams {
 public:
-    BevFusionParams(const NormParams normparams);
+    BevFusionParams(const NormParams &normparams);
     bool IsParamsValid() const;
 
 public:
-    const NormParams normparams;
+    const NormParams normparams_;
 };
 }  // namespace camera
 }  // namespace bevfusion

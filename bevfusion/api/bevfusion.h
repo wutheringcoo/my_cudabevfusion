@@ -1,5 +1,5 @@
-#ifndef BC795D66_F82A_44B2_90D1_59C3AE504E01
-#define BC795D66_F82A_44B2_90D1_59C3AE504E01
+#ifndef BEVFUSION_API_BEVFUSION_H
+#define BEVFUSION_API_BEVFUSION_H
 #include <memory>
 namespace bevfusion {
 class BevFusion {
@@ -17,4 +17,4 @@ private:
 
 }  // namespace bevfusion
 
-#endif /* BC795D66_F82A_44B2_90D1_59C3AE504E01 */
+#endif  // BEVFUSION_API_BEVFUSION_H

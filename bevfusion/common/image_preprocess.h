@@ -11,9 +11,9 @@ enum class InterpolType : std::uint8_t { Nearest = 0U, Bilinear = 1U };
 
 //  shiyong 数组作为形参初始化需要使用memcpy, 否则报错could not convert
 //  ‘{2.29000002e-1f, 2.24000007e-1f, 2.24999994e-1f}’ from ‘<brace-enclosed initializer list>’ to ‘const float*’
-class NormParams {
+class ImgPreprocess {
 public:
-    NormParams(
+    explicit ImgPreprocess(
         // Image Resize
         const std::uint32_t src_image_width = 1600U,
         const std::uint32_t src_image_height = 900U,

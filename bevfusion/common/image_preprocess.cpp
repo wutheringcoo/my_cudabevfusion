@@ -3,7 +3,7 @@
 namespace bevfusion {
 namespace camera {
 
-NormParams::NormParams(
+ImgPreprocess::ImgPreprocess(
     const std::uint32_t src_image_width,
     const std::uint32_t src_image_height,
     const std::uint32_t num_cameras,

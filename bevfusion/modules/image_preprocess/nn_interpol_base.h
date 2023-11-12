@@ -11,12 +11,15 @@ namespace camera {
 class NearestNeighborInterpol {
 public:
     NearestNeighborInterpol(const BevFusionParams& params);
-    unsigned char* forward(const unsigned char* src_img, unsigned char* dst_img);
+    void forward(const unsigned char* src_img, unsigned char* dst_img);
 
 private:
     const BevFusionParams& params_;
     const int src_w_;
     const int src_h_;
+
+    /// @brief  numbers of image
+    const int dst_n_;
     const int dst_w_;
     const int dst_h_;
     const int dst_c_;

@@ -7,7 +7,7 @@ enable_testing()
 add_executable(nn_interpol_base_test_exec.out nn_interpol_base_test.cpp)
 
 # target_link_libraries(nn_interpol_base_test_exec.out nn_interpol_base gtest gtest_main gmock_main pthread)
-target_link_libraries(nn_interpol_base_test_exec.out  gtest gtest_main gmock_main pthread)
+target_link_libraries(nn_interpol_base_test_exec.out  gtest gtest_main gmock_main pthread bevfusion_params)
 # add_test(NAME NN_INTERPOL_BASE_TEST COMMAND nn_interpol_base_test_exec.out)
 # set_property(
 #     TEST NN_INTERPOL_BASE_TEST

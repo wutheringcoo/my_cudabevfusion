@@ -11,7 +11,7 @@ include_directories(
     bevfusion/common
     bevfusion/modules/image_preprocess
     )
-add_library(bevfusion_params bevfusion/common/bevfusion_params.cpp)
+add_library(bevfusion_params bevfusion/common/bevfusion_params.cpp bevfusion/common/image_preprocess.cpp)
 
 add_subdirectory(third_party/googletest)
 # add_subdirectory(bevfusion/modules/image_preprocess)

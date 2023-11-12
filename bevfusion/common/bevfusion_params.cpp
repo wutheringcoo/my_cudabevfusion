@@ -4,7 +4,8 @@
 namespace bevfusion {
 namespace camera {
 
-BevFusionParams::BevFusionParams(const NormParams &normparams) : normparams_(normparams) {
+BevFusionParams::BevFusionParams(const ImgPreprocess &imgpreprocess_params) :
+        imgpreprocess_params(imgpreprocess_params) {
     printf("BevFusionParams Initialization.");
 }
 

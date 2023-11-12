@@ -1,6 +1,7 @@
-
+#include <fstream>
 #include <gtest/gtest.h>
 #include <iostream>
+#include "../common/bevfusion_params.h"
 #include "../common/image_preprocess.h"
 #include "../nn_interpol_base.h"
 using namespace std;
@@ -9,33 +10,38 @@ namespace bevfusion {
 namespace camera {
 
 TEST(test1, nn_inter_test) {
-    /// 1) set normalization parameters: NormParams
-    NormParams norm_param;
-    norm_param.type = NormType::MeanStd;
+    /// 1) set imgpreprocess  parameters: ImgPreprocess
+    ImgPreprocess imgpreprocess_params;
 
-    float mean[3] = {0.485, 0.456, 0.406};
-    mempcpy(norm_param.mean, mean, sizeof(mean));
+    BevFusionParams bevfusion_params(imgpreprocess_params);
 
-    float std[3] = {0.485, 0.456, 0.406};
-    mempcpy(norm_param.std, std, sizeof(std));
+    NearestNeighborInterpol nn_interpol(bevfusion_params);
 
-    norm_param.alpha = 1 / 255.0F;
-    norm_param.beta = 0.0F;
+    /// 2) read src and expected image data.
+    std::ifstream src_file("src_img.bin", std::ios::binary);
+    std::ifstream dst_file("dst_img.bin", std::ios::binary);
 
-    /// 2) set resize parameters: ResizeParams
-    norm_param.resizeparams.src_image_width = 1600;
-    norm_param.resizeparams.src_image_height = 900;
+    if (!(src_file && dst_file)) {
+        std::cerr << "Unable to open file\n";
+    }
 
-    norm_param.num_cameras = 6;
-    norm_param.dst_image_width = 800;
-    norm_param.dst_image_height = 450;
-    norm_param.dst_image_channel = 3;
-    norm_param.resize_scale = 1.0F;
+    int src_byte_size = 2 * 1020 * 1920 * 3;
+    int dst_byte_size = 2 * 510 * 960 * 3;
+    std::uint8_t *src_img = (std::uint8_t *)malloc(src_byte_size * sizeof(std::uint8_t));
+    std::uint8_t *expected_dst_img = (std::uint8_t *)malloc(dst_byte_size * sizeof(std::uint8_t));
+    src_file.read(reinterpret_cast<char *>(src_img), sizeof(std::uint8_t *) * src_byte_size);
+    dst_file.read(reinterpret_cast<char *>(expected_dst_img), sizeof(std::uint8_t *) * dst_byte_size);
+    src_file.close();
+    dst_file.close();
 
-    BevFusionParams(norm_param);
+    /// 3) use nearest interpolation interface
+    unsigned char *dst_img = (unsigned char *)malloc(dst_byte_size * sizeof(unsigned char *));
+    nn_interpol.forward(src_img, dst_img);
+
+    // dst_img =
 
     EXPECT_EQ(2, 2);
-    cout << "xxxxxx" << endl;
+    cout << "xxasa111111111111111111xxxx" << endl;
 }
 
 }  // namespace camera

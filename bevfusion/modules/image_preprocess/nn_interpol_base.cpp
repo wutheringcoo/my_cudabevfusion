@@ -1,4 +1,4 @@
-#include "bevfusion/modules/image_preprocess/nn_interpol_base.h"
+#include "nn_interpol_base.h"
 #include <stdio.h>
 #include <iostream>
 using namespace std;
@@ -21,13 +21,13 @@ NearestNeighborInterpol::NearestNeighborInterpol(const BevFusionParams& params) 
 void NearestNeighborInterpol::forward(const unsigned char* src_img, unsigned char* dst_img) {
     //
     for (int n = 0; n < dst_n_; ++n) {
-        for (int i = 0; i < dst_h_; ++i) {
-            for (int j = 0; j < dst_w_; ++j) {
-                for (int k = 0; k < dst_c_; ++k) {
-                    int src_y = i / yscale_;
-                    int src_x = j / xscale_;
-                    dst_img[n * dst_h_ * dst_w_ * dst_c_ + i * dst_w_ * dst_c_ + j * dst_c_ + k] =
-                        src_img[n * src_h_ * src_w_ * dst_c_ + src_y * src_w_ * dst_c_ + src_x * dst_c_ + k];
+        for (int h = 0; h < dst_h_; ++h) {
+            for (int w = 0; w < dst_w_; ++w) {
+                for (int c = 0; c < dst_c_; ++c) {
+                    int y = h / yscale_;
+                    int x = w / xscale_;
+                    dst_img[n * dst_h_ * dst_w_ * dst_c_ + h * dst_w_ * dst_c_ + w * dst_c_ + c] =
+                        src_img[n * src_h_ * src_w_ * dst_c_ + y * src_w_ * dst_c_ + x * dst_c_ + c];
                     // cout << i * width << " " << j << " " << static_cast<int>(img[src_y * src_width + src_x]) << endl;
                 }
             }

@@ -6,12 +6,13 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_FLAGS_RELEASE "-std=c++14 -Wextra -Wall -Wno-missing-field-initializers -Wno-deprecated-declarations -O3 -DENABLE_TEXT_BACKEND_STB")
 set(CMAKE_CXX_FLAGS_DEBUG   "-std=c++14 -O0 -g -DENABLE_TEXT_BACKEND_STB")
 
-# 1) 编译common目录下的静态库
+
 include_directories(
     bevfusion/common
     bevfusion/modules/image_preprocess
     )
-add_library(bevfusion_params bevfusion/common/bevfusion_params.cpp bevfusion/common/image_preprocess.cpp)
+add_library(common STATIC bevfusion/common/bevfusion_params.cpp bevfusion/common/image_preprocess.cpp)
+add_library(nn_interpol_base   STATIC  bevfusion/modules/image_preprocess/nn_interpol_base.cpp)
 
 add_subdirectory(third_party/googletest)
 # add_subdirectory(bevfusion/modules/image_preprocess)

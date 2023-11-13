@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 import numpy as np
 import struct
 import cv2
@@ -48,3 +49,16 @@ with open("src_img.bin", "wb") as f:
 
 with open("dst_img.bin", "wb") as f:
     f.write(dst_img_bin)
+
+plt.imshow(img)
+plt.show()
+plt.imshow(img2)
+plt.show()
+plt.imshow(img_resize)
+plt.show()
+plt.imshow(img2_resize)
+plt.show()
+
+
+# cd  bevfusion/modules/image_preprocess/unit_tests/data/
+# python python_write_bin.py

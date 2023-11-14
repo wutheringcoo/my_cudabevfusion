@@ -64,9 +64,10 @@ TEST(test1, nn_inter_test) {
         max_error = std::max(std::abs(expected_dst_img[i] - dst_img[i]), max_error);
         // std::cout << static_cast<int>(expected_dst_img[i]) << " v.s." << static_cast<int>(dst_img[i]) << std::endl;
     }
+    nn_interpol.print();
 
-    // EXPECT_EQ(2, 2);
-    cout << "max_error=" << max_error << endl;
+    cout << "\nmax_error=" << max_error << endl;
+    EXPECT_EQ(max_error, 0);
 }
 
 }  // namespace camera

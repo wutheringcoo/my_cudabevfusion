@@ -12,6 +12,7 @@ class NearestNeighborInterpol {
 public:
     NearestNeighborInterpol(const BevFusionParams& params);
     void forward(const unsigned char* src_img, unsigned char* dst_img);
+    void print();
 
 private:
     const BevFusionParams& params_;

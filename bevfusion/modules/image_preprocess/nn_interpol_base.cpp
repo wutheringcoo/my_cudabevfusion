@@ -18,17 +18,27 @@ NearestNeighborInterpol::NearestNeighborInterpol(const BevFusionParams& params) 
     printf("NearestNeighborInterpol Construct Success.");
 }
 
+void NearestNeighborInterpol::print() {
+    printf("\nsrc_w_=%d", src_w_);
+    printf("\nsrc_h_=%d", src_h_);
+    printf("\ndst_n_=%d", dst_n_);
+    printf("\ndst_w_=%d", dst_w_);
+    printf("\ndst_h_=%d", dst_h_);
+    printf("\ndst_c_=%d", dst_c_);
+    printf("\nxscale_=%f", xscale_);
+    printf("\nyscale_=%f", yscale_);
+}
+
 void NearestNeighborInterpol::forward(const unsigned char* src_img, unsigned char* dst_img) {
-    //
+    const float eps = 1e-5;
     for (int n = 0; n < dst_n_; ++n) {
         for (int h = 0; h < dst_h_; ++h) {
             for (int w = 0; w < dst_w_; ++w) {
                 for (int c = 0; c < dst_c_; ++c) {
-                    int y = h / yscale_;
-                    int x = w / xscale_;
+                    int y = h / yscale_ + eps;
+                    int x = w / xscale_ + eps;
                     dst_img[n * dst_h_ * dst_w_ * dst_c_ + h * dst_w_ * dst_c_ + w * dst_c_ + c] =
                         src_img[n * src_h_ * src_w_ * dst_c_ + y * src_w_ * dst_c_ + x * dst_c_ + c];
-                    // cout << i * width << " " << j << " " << static_cast<int>(img[src_y * src_width + src_x]) << endl;
                 }
             }
         }

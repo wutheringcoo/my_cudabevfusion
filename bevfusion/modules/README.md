@@ -19,7 +19,18 @@ vscode ctrl+shift+p setting: convert indentation to spaces
 4) instead 3/4 step: ctest / make test
 ps: cmake --build [build] 可以替换1，2步骤；
 
+cv2.resize(interpolation)
+interpolation 表示插值方式，有以下取值。
+
+INTER_NEAREST：最近邻插值
+INTER_LINEAR：线性插值（默认）
+INTER_AREA：区域插值
+INTER_CUBIC：三次样条插值
+INTER_LANCZOS4：Lanczos 插值
+
+
+
 
 最近邻插值算法，这是一种最基本、最简单的图像缩放算法，效果也是最不好的，放大后的图像有很严重的马赛克，缩小后的图像有很严重的失真；效果不好的根源就是其简单的最临近插值方法引入了严重的图像失真，比如，当由目标图的坐标反推得到的源图的的坐标是一个浮点数的时候，采用了四舍五入的方法，直接采用了和这个浮点数最接近的象素的值，这种方法是很不科学的，当推得坐标值为 0.75的时候，不应该就简单的取为1，既然是0.75，比1要小0.25 ，比0要大0.75 ,那么目标象素值其实应该根据这个源图中虚拟的点四周的四个真实的点来按照一定的规律计算出来的，这样才能达到更好的缩放效果。
-
+ps.
 https://www.cnblogs.com/yssongest/p/5303151.html

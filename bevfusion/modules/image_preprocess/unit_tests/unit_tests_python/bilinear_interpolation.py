@@ -4,35 +4,48 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-# src
-img = cv2.imread("../data/1616344634199.jpg")
-W = int(img.shape[1] / 2)
-H = int(img.shape[0] / 2)
+def test_bilinear():
+    def BiLinearInterPolation(img, dstH, dstW, dstC):
+        H, W, _ = img.shape
+        dstimg = np.zeros((dstH, dstW, dstC), dtype=np.uint8)
+        for h in range(dstH):
+            for w in range(dstW):
+                for c in range(dstC):
+                    x = (w + 0.5) * (W / dstW) - 0.5
+                    y = (h + 0.5) * (H / dstH) - 0.5
 
-# dst
-img_dst = cv2.resize(
-    src=img,
-    dsize=(int(img.shape[1] / 2), int(img.shape[0] / 2)),
-    interpolation=cv2.INTER_LINEAR,
-)
+                    x1 = int(x)
+                    y1 = int(y)
+                    u = x - x1
+                    v = y - y1
+                    dstimg[h, w, c] = (
+                        (1 - u) * (1 - v) * img[y1, x1, c]  # Q11
+                        + (1 - u) * v * img[y1 + 1, x1, c]  # Q12
+                        + u * (1 - v) * img[y1, x1 + 1, c]  # Q21
+                        + u * v * img[y1 + 1, x1 + 1, c]  # Q22
+                    )
+        # plt.imshow(dstimg[..., ::-1])
+        # plt.show()
+
+        return dstimg
+
+    # src
+    img = cv2.imread("../data/1616344634199.jpg")
+    dstH = int(img.shape[0] / 2)
+    dstW = int(img.shape[1] / 2)
+    dstC = img.shape[2]
+
+    # method1  opencv api
+    dst_img = cv2.resize(
+        src=img,
+        dsize=(int(dstW), int(dstH)),
+        interpolation=cv2.INTER_LINEAR,
+    )
+
+    dst_img2 = BiLinearInterPolation(img, dstH, dstW, dstC)
+
+    print("max_error=", np.abs(dst_img - dst_img2).max())
 
 
-def BiLinearInterPolation(img, dstH, dstW):
-    scrH, scrW, _ = img.shape
-    img = np.pad(img, ((0, 1), (0, 1), (0, 0)), "constant")
-    retimg = np.zeros((dstH, dstW, 3), dtype=np.uint8)
-    for i in range(dstH):
-        for j in range(dstW):
-            scrx = (i + 1) * (scrH / dstH) - 1
-            scry = (j + 1) * (scrW / dstW) - 1
-            x = math.floor(scrx)
-            y = math.floor(scry)
-            u = scrx - x
-            v = scry - y
-            retimg[i, j] = (
-                (1 - u) * (1 - v) * img[x, y]
-                + u * (1 - v) * img[x + 1, y]
-                + (1 - u) * v * img[x, y + 1]
-                + u * v * img[x + 1, y + 1]
-            )
-    return retimg
+if __name__ == "__main__":
+    pytest.main(["-s", "-v", "bilinear_interpolation.py"])

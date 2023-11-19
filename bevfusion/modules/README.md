@@ -11,6 +11,13 @@ vscode ctrl+shift+p setting: convert indentation to spaces
 4) 使用cmake 编译构建，cpp 引入头文件的处理方法是使用相对引用的方法。
 5) class带入struct的表达中，如果成员变量有struct，会报错的问题优化为class类传参进入bevfusion_param class.
 
+https://zhuanlan.zhihu.com/p/361430532?utm_id=0
+python shixian 
+https://blog.csdn.net/Ibelievesunshine/article/details/104939936
+yuanli
+https://www.cnblogs.com/yssongest/p/5303151.html
+
+
 ### Make 
 1) cd build
 2) cmake ..

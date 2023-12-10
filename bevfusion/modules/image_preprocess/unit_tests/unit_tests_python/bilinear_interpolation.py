@@ -20,8 +20,10 @@ def test_bilinear():
                     v = y - y1
                     dstimg[h, w, c] = (
                         (1 - u) * (1 - v) * img[y1, x1, c]  # Q11
-                        + (1 - u) * v * img[y1 + 1, x1, c]  # Q12
-                        + u * (1 - v) * img[y1, x1 + 1, c]  # Q21
+                        # + (1 - u) * v * img[y1 + 1, x1, c]  # Q12
+                        # + u * (1 - v) * img[y1, x1 + 1, c]  # Q21
+                        + u * (1 - v) * img[y1 + 1, x1, c]  # Q12
+                        + (1 - u) * v * img[y1, x1 + 1, c]  # Q21
                         + u * v * img[y1 + 1, x1 + 1, c]  # Q22
                     )
         # plt.imshow(dstimg[..., ::-1])
